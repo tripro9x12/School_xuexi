@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            ul{
+                display: none;
+            }
+            input:focus ~ ul{
+                display: block;
+            }
+        </style>
+</head>
+
+<body>
+    <a name="course" href="https://f8.edu.vn">Học lập trình</a>
+
+    <a name="search" href="https://google.com.vn">Tìm kiếm</a>
+
+    <input type="text" placeholder="Tìm kiếm">
+    <ul>
+        <li>JavaScript</li>
+        <li>Angular</li>
+        <li>.Net</li>
+    </ul>
+
+
+    <div>
+        DIV
+        <button>Click Me!</button>
+    </div>
+
+    <script>
+        function elementA() {
+            //   let aElement = document.querySelectorAll('a');
+            // let aElement = document.anchors; // thẻ a phải có name;
+            let aElement = document.links;
+            for (let i = 0; i < aElement.length; i++) {
+                aElement[i].onclick = function (e) {
+                    if (!e.target.href.startsWith('https://f8.edu.vn')) {
+                        e.preventDefault();
+                    }
+                    console.log(e.target.href)
+                }
+                
+            }
+        }
+        elementA();
+
+        function elementUl(){
+            let ulElement = document.querySelector('ul');
+            ulElement.onmousedown = function(e){
+                e.preventDefault();
+            }
+            ulElement.onclick = function(e){
+                console.log(e.target);
+            }
+        }
+        elementUl();
+
+        function stop_propagation(){
+            document.querySelector('div').onclick = ()=>{
+                console.log('div');
+            }
+            document.querySelector('button').onclick = (e)=>{
+                e.stopPropagation(); // ngăn chặn nổi bọt;
+                console.log('click me!');
+            }
+        }
+        stop_propagation();
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
