@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .red {
+            color: red;
+        }
+
+        .blue {
+            color: blue;
+        }
+
+        div {
+            border: 1px double #090909;
+            border-collapse: collapse;
+        }
+
+        div:first-child {
+            border-bottom: 0 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        end ding
+    </div>
+    <div>
+        <h1>heading</h1>
+        <p class="text-class">đây là thẻ p 1</p>
+        <p class="text-class">đây là thẻ p 2</p>
+        <ul>
+            <li>JavaScript</li>
+        </ul>
+    </div>
+    <script>
+        function createElement_p() {
+            let div = document.querySelectorAll('div')[0];  //lấy thẻ div ở phần tử thứ 2
+            let p = document.createElement('p');  //thêm 1 thẻ p
+            p.innerHTML = 'P ding';        //thêm 1 Nodetext;
+            p.setAttribute('id', 'id-p');  //thêm 1 id có value là id-p
+            div.appendChild(p);            // chèn thẻ p vào thẻ div
+            document.querySelector('p').classList.add('red', 'blue');  //thêm class
+
+            setInterval(() => {
+                document.querySelector('p').classList.toggle('blue');    // có rồi thì xóa, chưa có thì thêm vào;
+            }, 500);
+            console.log(p);
+        }
+        createElement_p();
+
+        function appendChild_li() {
+            const ul = document.querySelector('ul');   //lấy thẻ ul
+            let li = document.createElement('li');     //thêm 1 thẻ li
+            let text = document.createTextNode('PHP'); //thêm 1 text node
+            li.appendChild(text);
+            ul.appendChild(li);
+            Object.assign(ul.style, {
+                listStyle: 'none',
+                color: 'while',
+                backgroundColor: 'yellow',
+                width: '200px'
+            })
+        }
+        appendChild_li();
+
+        function removerChild_h1() {
+            //C1: phải có element cha; 
+            const div = document.querySelectorAll('div')[1];
+            const h1 = document.querySelector('h1');
+            div.removeChild(h1);
+
+            //C2: không cần element cha, dùng parentNode;
+            const p = document.querySelectorAll('.text-class')[0];
+            p.parentNode.removeChild(p);
+        }
+        removerChild_h1();
+
+        function replaceChild_p2() {
+            const div = document.querySelectorAll('div')[1];
+            let p = document.querySelectorAll('p')[0];    //vì thẻ p đầu tiên đã bị xóa bởi hàm remove phía trên nên phải gọi là từ index 0;
+            let new_p = document.createElement('p');
+            let nodeText = document.createTextNode('đây là thẻ new p');
+            new_p.appendChild(nodeText);
+            div.replaceChild(new_p, p);
+
+        }
+        replaceChild_p2();
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

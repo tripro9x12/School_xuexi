@@ -1,4 +1,4 @@
-var courses =[
+var courses = [
     {
         id: 1,
         name: 'Javascript',
@@ -33,38 +33,38 @@ var courses =[
 ];
 
 //forEach() duyệt qua các phần tử của mảng
-courses.forEach((courses, index)=>{
+courses.forEach((courses, index) => {
     console.log(index, courses);
 });
 
 //every(): trả về true or false(duyệt từng phần từ, case sai sẽ dừng lại);
-function everyy(boolean){
-    return boolean.every(function(boolean, index){
-        console.log(index, boolean.coin == 0);
+function everyy(boolean) {
+    return boolean.every(function (boolean, index) {
+        console.log(index, boolean.coin == 250);
     });
 }
 everyy(courses);
 
 //some(): trả về true or false(duyệt qua từng phần tử, case đúng sẽ dừng lại)
-function somee(boolean){
-    return boolean.some((boolean, index)=>{
-        console.log(index, boolean.coin === 0);
+function somee(boolean) {
+    return boolean.some((boolean, index) => {
+        console.log(index, boolean.coin == 250);
     });
 }
 somee(courses);
 
 //find(): trả về tất cả kết quả đúng
-function findd(z){
-    var b = z.find((z)=>{
-        return z.name =='PHP';
+function findd(z) {
+    var b = z.find((z) => {
+        return z.name == 'PHP';
     })
     console.log(b);
 }
 findd(courses);
 
 //filter(); trả về tất cả kết quả đúng
-function filterr(z){
-    var a = z.filter((z)=>{
+function filterr(z) {
+    var a = z.filter((z) => {
         return z.coin === 0;
     })
     console.log(a);
@@ -72,29 +72,29 @@ function filterr(z){
 filterr(courses);
 
 //map() duyệt qua các phần tử của mảng; giống với forEach();
-function show(x){
-    return x.map((x, y)=>{
-       console.log(y, x.name);
+function show(x) {
+    return x.map((x, y) => {
+        console.log(y, x.name);
     })
 }
 show(courses);
 
 
 //reduce(); giá trị đầu = giá trị đầu + giá trị sau
-function reducee(x){
-    var c =  x.reduce((x, y)=>{
-       return x + y.coin;
+function reducee(x) {
+    var c = x.reduce((x, y) => {
+        return x + y.coin;
     }, 0);
     console.log(c)
 }
 reducee(courses);
 //sort(); sắp xếp giá trị
-function sapxep(x){
-      var d = x.map((x)=>{
-          return x.coin
-      }).sort((x,y)=>{
-          return x-y;
-      })
+function sapxep(x) {
+    var d = x.map((x) => {
+        return x.coin
+    }).sort((x, y) => {
+        return x - y;
+    })
     console.log(d);
 }
 sapxep(courses);

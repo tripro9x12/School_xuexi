@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 id="titlt">Dataset D-code</h2>
+    <div id="main" data-name="dominic" data-started-coding-at="15">
+        Sample Text
+    </div>
+
+    <script type="text/javascript">
+        //dataset lấy thuộc tính đằng sau data-; mỗi dấu - thì chữ ở đằng sau viết hoa (camelCase)
+        const mainDiv = document.querySelector('#main');
+
+        console.log(mainDiv.dataset)
+        // console.log(mainDiv.dataset.name);
+        // console.log(mainDiv.dataset.startedCodingAt);
+        mainDiv.name = 'Bob';         //gán lại value cho name;
+        console.log(mainDiv.dataset)
+        mainDiv.setAttribute('data-name-name', 'Poppy');
+        console.log(mainDiv.dataset)
+        console.log(mainDiv.getAttribute('data-name-name'))
+        mainDiv.removeAttribute('data-name-name')
+        console.log(mainDiv.dataset)
+
+    </script>
+</body>
+
+</html>

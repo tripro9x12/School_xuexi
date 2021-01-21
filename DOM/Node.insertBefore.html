@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 id="title">Node.insertBefore</h2>
+    <ul id="myList">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li id="pearsItem">Pears</li>
+    </ul>
+
+    <script>
+        const myList = document.getElementById('myList');
+        const pearsItem = document.getElementById('pearsItem');
+
+        console.log(myList)
+        console.log(pearsItem)
+
+        const orangesItem = document.createElement('li');
+        const text = document.createTextNode('Orange')
+        orangesItem.appendChild(text);
+
+        // myList.insertBefore(orangesItem, pearsItem);
+
+        function addInsertBefore(parent, toInsert, firstChild) {
+            parent.insertBefore(toInsert, firstChild);
+        }
+        addInsertBefore(myList, orangesItem, pearsItem)
+
+    </script>
+</body>
+
+</html>
